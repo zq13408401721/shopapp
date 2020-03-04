@@ -4,6 +4,9 @@ import com.myshop.interfaces.IBasePresenter;
 import com.myshop.interfaces.IBaseView;
 import com.myshop.model.bean.HomeBean;
 
+/**
+ * 契约类  解决高类聚 低耦合
+ */
 public interface HomeConstract {
 
     interface View extends IBaseView{

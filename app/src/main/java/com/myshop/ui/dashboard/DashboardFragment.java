@@ -13,23 +13,39 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.myshop.R;
+import com.myshop.base.BaseFragment;
+import com.myshop.interfaces.IBasePresenter;
+import com.myshop.interfaces.topic.TopicConstract;
+import com.myshop.model.bean.TopicBean;
+import com.myshop.presenter.topic.TopicPresenter;
 
-public class DashboardFragment extends Fragment {
+public class DashboardFragment extends BaseFragment<TopicConstract.Presenter> implements TopicConstract.View {
 
-    private DashboardViewModel dashboardViewModel;
+    int page = 1;
+    int size = 100;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        dashboardViewModel =
-                ViewModelProviders.of(this).get(DashboardViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
-        final TextView textView = root.findViewById(R.id.text_dashboard);
-        dashboardViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
-        return root;
+    @Override
+    protected int getLayout() {
+        return R.layout.fragment_dashboard;
+    }
+
+    @Override
+    protected TopicConstract.Presenter createPresenter() {
+        return new TopicPresenter();
+    }
+
+    @Override
+    protected void initView() {
+
+    }
+
+    @Override
+    protected void initData() {
+        presenter.getTopicData(page,size);
+    }
+
+    @Override
+    public void getTopicDataReturn(TopicBean result) {
+
     }
 }
