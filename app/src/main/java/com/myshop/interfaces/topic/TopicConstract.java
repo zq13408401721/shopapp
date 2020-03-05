@@ -9,10 +9,12 @@ import com.myshop.model.bean.TopicBean;
  */
 public interface TopicConstract {
 
+    //定义V层接口，方法给P层的实现类调用
     interface View extends IBaseView{
         void getTopicDataReturn(TopicBean result);
     }
 
+    //定义专题业务的P层接口，方法给对应的V层的实现类调用
     interface Presenter extends IBasePresenter<View>{
         void getTopicData(int page,int size);
     }

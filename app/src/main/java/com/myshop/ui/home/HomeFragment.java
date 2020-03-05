@@ -43,6 +43,6 @@ public class HomeFragment extends BaseFragment<HomeConstract.Presenter> implemen
 
     @Override
     public void getHomeDataReturn(HomeBean result) {
-
+        System.out.print(result);
     }
 }
