@@ -28,7 +28,9 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
 
-        openLogin();
+        //openLogin();
+        Intent intent = new Intent(this,TestDataActivity.class);
+        startActivity(intent);
     }
 
     private void openLogin(){

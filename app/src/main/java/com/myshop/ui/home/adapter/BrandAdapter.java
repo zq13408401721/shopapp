@@ -1,6 +1,7 @@
 package com.myshop.ui.home.adapter;
 
 import android.content.Context;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -31,5 +32,13 @@ public class BrandAdapter extends BaseAdapter {
         Glide.with(mContext).load(bean.getNew_pic_url()).into(imgBrand);
         txtTitle.setText(bean.getName());
         txtPrice.setText(bean.getFloor_price()+"元起");
+
+        if(onClickListener != null){
+            txtTitle.setTag(bean);
+            txtTitle.setOnClickListener(onClickListener);
+            txtPrice.setTag(bean);
+            txtPrice.setOnClickListener(onClickListener);
+        }
+
     }
 }

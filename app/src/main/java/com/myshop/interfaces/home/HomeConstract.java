@@ -11,10 +11,14 @@ public interface HomeConstract {
 
     interface View extends IBaseView{
         void getHomeDataReturn(HomeBean result);
+
+        void getIndexDataReturn(HomeBean result);
     }
 
     interface Presenter extends IBasePresenter<View>{
         void getHomeData();
+
+        void getIndexData();
     }
 
 }

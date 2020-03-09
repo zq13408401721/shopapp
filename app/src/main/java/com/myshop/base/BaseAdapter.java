@@ -28,6 +28,8 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter {
     private List<T> mDatas;
     protected Context mContext;
     private ItemClickListener clickListener;
+    //用来响应列表条目中的触发事件
+    protected View.OnClickListener onClickListener;
 
     public BaseAdapter(Context context,List<T> mDatas){
         this.mContext = context;
@@ -130,6 +132,14 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter {
      */
     public void addItemClickListener(ItemClickListener listner){
         clickListener = listner;
+    }
+
+    /**
+     * 绑定条目中的组件触发事件
+     * @param listener
+     */
+    public void addOnClickListener(View.OnClickListener listener){
+        onClickListener = listener;
     }
 
     /**

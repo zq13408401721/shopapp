@@ -1,5 +1,7 @@
 package com.myshop.ui.home;
 
+import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -58,6 +60,22 @@ public class HomeFragment extends BaseFragment<HomeConstract.Presenter> implemen
                 Toast.makeText(context, "click pos "+position, Toast.LENGTH_SHORT).show();
             }
         });
+        //设置item中组件的点击事件响应
+        brandAdapter.addOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (v.getId()){
+                    case R.id.txt_title:
+                        v.getTag();
+                        Log.i("click","this click is txt_title");
+                        break;
+                    case R.id.txt_price:
+                        v.getTag();
+                        Log.i("click","this click is txt_price");
+                        break;
+                }
+            }
+        });
 
     }
 
@@ -72,6 +90,11 @@ public class HomeFragment extends BaseFragment<HomeConstract.Presenter> implemen
         updateBrand(result.getData().getBrandList());
 
         updateTopic(result.getData().getTopicList());
+    }
+
+    @Override
+    public void getIndexDataReturn(HomeBean result) {
+
     }
 
     /**

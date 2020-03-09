@@ -39,7 +39,7 @@ public abstract class BaseFragment<P extends IBasePresenter> extends Fragment im
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        unbinder = ButterKnife.bind(context,view);
+        unbinder = ButterKnife.bind(this,view);
         presenter = createPresenter();
         if(presenter != null){
             presenter.attachView(this);
