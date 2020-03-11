@@ -46,12 +46,12 @@ public class MainActivity extends AppCompatActivity {
         testBean.setName("hello");
 
         //以图片为例转换成base64 传递到 TestDataActivity
-        String bmpBase64 = Base64.encodeToString(parseBitmapBytes(),Base64.DEFAULT);
+        /*String bmpBase64 = Base64.encodeToString(parseBitmapBytes(),Base64.DEFAULT);
         //openLogin();
         Intent intent = new Intent(this,TestDataActivity.class);
         intent.putExtra("data",testBean);
-        intent.putExtra("bitmap64",bmpBase64);
-        startActivity(intent);
+        intent.putExtra("bitmap64",bmpBase64);*/
+        //startActivity(intent);
     }
 
     /**

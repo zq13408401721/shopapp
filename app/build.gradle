@@ -66,6 +66,11 @@ dependencies {
 
     //probuffer
     implementation 'com.google.protobuf:protobuf-java:3.4.0'
-
+    //沉浸式
+    implementation 'com.jaeger.statusbarutil:library:1.5.1'
+    //banner
+    implementation 'com.youth.banner:banner:1.4.10'
+    //RecyclerView Adapter
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.42'
 
 }

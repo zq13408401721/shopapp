@@ -38,7 +38,30 @@ public class HomeBean {
         this.data = data;
     }
 
+    public static class BaseData<T>{
+        public int getType() {
+            return type;
+        }
+
+        public void setType(int type) {
+            this.type = type;
+        }
+
+        private int type;
+
+        public T getData() {
+            return data;
+        }
+
+        public void setData(T data) {
+            this.data = data;
+        }
+
+        private T data;
+    }
+
     public static class DataBean {
+
         private List<BannerBean> banner;
         private List<ChannelBean> channel;
         private List<NewGoodsListBean> newGoodsList;
@@ -103,7 +126,7 @@ public class HomeBean {
             this.categoryList = categoryList;
         }
 
-        public static class BannerBean {
+        public static class BannerBean extends BaseData {
             /**
              * id : 1
              * ad_position_id : 1
@@ -199,7 +222,7 @@ public class HomeBean {
             }
         }
 
-        public static class ChannelBean {
+        public static class ChannelBean extends BaseData {
             /**
              * id : 1
              * name : 居家
@@ -255,7 +278,7 @@ public class HomeBean {
             }
         }
 
-        public static class NewGoodsListBean {
+        public static class NewGoodsListBean extends BaseData {
             /**
              * id : 1116011
              * name : 蔓越莓曲奇 200克
@@ -301,7 +324,7 @@ public class HomeBean {
             }
         }
 
-        public static class HotGoodsListBean {
+        public static class HotGoodsListBean extends BaseData {
             /**
              * id : 1006013
              * name : 双宫茧桑蚕丝被 空调被
@@ -357,7 +380,7 @@ public class HomeBean {
             }
         }
 
-        public static class BrandListBean {
+        public static class BrandListBean extends BaseData {
             /**
              * id : 1026000
              * name : CK制造商
@@ -485,7 +508,7 @@ public class HomeBean {
             }
         }
 
-        public static class TopicListBean {
+        public static class TopicListBean extends BaseData {
             /**
              * id : 314
              * title : 关爱他成长的每一个足迹
@@ -637,7 +660,7 @@ public class HomeBean {
             }
         }
 
-        public static class CategoryListBean {
+        public static class CategoryListBean extends BaseData {
             /**
              * id : 1005000
              * name : 居家
