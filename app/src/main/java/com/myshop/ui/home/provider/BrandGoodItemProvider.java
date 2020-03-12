@@ -9,7 +9,9 @@ import com.myshop.R;
 import com.myshop.model.bean.HomeBean;
 import com.myshop.ui.home.adapter.HomeAdapter;
 
-public class BrandGoodItemProvider extends BaseItemProvider<HomeBean.DataBean.BrandListBean,BaseViewHolder> {
+import java.util.List;
+
+public class BrandGoodItemProvider extends BaseItemProvider<HomeBean.BaseData,BaseViewHolder> {
     @Override
     public int viewType() {
         return HomeAdapter.TYPE_BRANDGOOD;
@@ -21,10 +23,13 @@ public class BrandGoodItemProvider extends BaseItemProvider<HomeBean.DataBean.Br
     }
 
     @Override
-    public void convert(BaseViewHolder helper, HomeBean.DataBean.BrandListBean data, int position) {
-        Glide.with(mContext).load(data.getNew_pic_url()).into((ImageView) helper.getView(R.id.img_brand));
+    public void convert(BaseViewHolder helper, HomeBean.BaseData data, int position) {
 
-        helper.setText(R.id.txt_name,data.getName());
-        helper.setText(R.id.txt_price,"￥"+data.getFloor_price()+"元起");
+        List<HomeBean.DataBean.BrandListBean> list = (List<HomeBean.DataBean.BrandListBean>) data;
+
+        Glide.with(mContext).load(list.get(position).getNew_pic_url()).into((ImageView) helper.getView(R.id.img_brand));
+
+        helper.setText(R.id.txt_name,list.get(position).getName());
+        helper.setText(R.id.txt_price,"￥"+list.get(position).getFloor_price()+"元起");
     }
 }

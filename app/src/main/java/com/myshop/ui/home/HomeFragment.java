@@ -1,5 +1,6 @@
 package com.myshop.ui.home;
 
+import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.myshop.R;
+import com.myshop.TestDataActivity;
 import com.myshop.base.BaseAdapter;
 import com.myshop.base.BaseFragment;
 import com.myshop.interfaces.home.HomeConstract;
@@ -58,6 +60,9 @@ public class HomeFragment extends BaseFragment<HomeConstract.Presenter> implemen
             public void itemClick(BaseAdapter.BaseViewHolder holder, int position) {
                 //接收列表条目的接口回调
                 Toast.makeText(context, "click pos "+position, Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(context, TestDataActivity.class);
+                startActivity(intent);
             }
         });
         //设置item中组件的点击事件响应
@@ -85,11 +90,11 @@ public class HomeFragment extends BaseFragment<HomeConstract.Presenter> implemen
     }
 
     @Override
-    public void getHomeDataReturn(HomeBean result) {
+    public void getHomeDataReturn(List<HomeBean.HomeListBean> result) {
 
-        updateBrand(result.getData().getBrandList());
+        /*updateBrand(result.getData().getBrandList());
 
-        updateTopic(result.getData().getTopicList());
+        updateTopic(result.getData().getTopicList());*/
     }
 
     @Override

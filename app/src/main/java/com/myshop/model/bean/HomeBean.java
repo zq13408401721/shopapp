@@ -1,8 +1,36 @@
 package com.myshop.model.bean;
 
+import com.chad.library.adapter.base.entity.MultiItemEntity;
+
 import java.util.List;
 
 public class HomeBean {
+
+    //显示列表数据
+    public static class HomeListBean<T> implements MultiItemEntity{
+        public static final int TYPE_BANNER = 1;
+        public static final int TYPE_TITLE = 2;
+        public static final int TYPE_BRAND = 3;
+        public static final int TYPE_NEWGOOD = 4;
+        public static final int TYPE_HOTGOOD = 5;
+        public static final int TYPE_TOPIC = 6;
+        public static final int TYPE_CATEGORY = 7;
+        public static final int TYPE_CHANNEL = 8;
+        public static final int TYPE_VIEW_LINE = 9;
+
+        public int currentType;
+
+        public String title;
+
+        public T data;
+
+        @Override
+        public int getItemType() {
+            return currentType;
+        }
+
+    }
+
 
     /**
      * errno : 0
@@ -38,26 +66,20 @@ public class HomeBean {
         this.data = data;
     }
 
-    public static class BaseData<T>{
-        public int getType() {
-            return type;
+    public static class BaseData<T> implements MultiItemEntity {
+
+        public static final int TYPE_BANNER = 1;
+
+
+
+        public int currentType;
+
+
+
+        @Override
+        public int getItemType() {
+            return currentType;
         }
-
-        public void setType(int type) {
-            this.type = type;
-        }
-
-        private int type;
-
-        public T getData() {
-            return data;
-        }
-
-        public void setData(T data) {
-            this.data = data;
-        }
-
-        private T data;
     }
 
     public static class DataBean {
